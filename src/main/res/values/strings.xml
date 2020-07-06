@@ -18,4 +18,42 @@
     <string name="sync_label_pos_order_line">POS Order Line</string>
     <string name="sync_label_pos_config">POS Config</string>
 
+    <string name="title_about">About</string>
+    <string name="summary_about_odoo_mobile">RxMart Mobile</string>
+
+    <string-array name="syncDataLimit">
+        <item name="30">1 month old</item>
+        <item name="60">2 months old</item>
+        <item name="90">3 months old</item>
+        <item name="180">6 months old</item>
+        <item name="360">12 months old</item>
+    </string-array>
+    <string-array name="syncDataLimitValues">
+        <item name="30">30</item>
+        <item name="60">60</item>
+        <item name="90">90</item>
+        <item name="180">180</item>
+        <item name="360">360</item>
+    </string-array>
+
+    <string-array name="syncInterval">
+        <item name="5">Every 5 minutes</item>
+        <item name="10">Every 10 minutes</item>
+        <item name="20">Every 20 minutes</item>
+        <item name="40">Every 40 minutes</item>
+        <item name="60">Every 60 minutes</item>
+        <item name="1440">Once in a day</item>
+    </string-array>
+    <string-array name="syncIntervalValues">
+        <item name="5">5</item>
+        <item name="10">10</item>
+        <item name="20">20</item>
+        <item name="40">40</item>
+        <item name="60">60</item>
+        <item name="1440">1440</item>
+    </string-array>
+    <string name="notification_default_ring_tone">content://settings/system/notification_sound</string>
+
+    <string name="label_accounts_settings">RxOne</string>
+
 </resources>

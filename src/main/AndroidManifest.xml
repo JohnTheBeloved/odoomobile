@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ehealthinformatics.odoorxcore" >
+    package="com.ehealthinformatics.odoorx" >
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
@@ -8,13 +8,13 @@
     
         <!-- Sync Provider & Service  // -->
         <provider
-            android:name="com.ehealthinformatics.odoorxcore.device.providers.CustomersSyncProvider"
+            android:name=".core.base.device.providers.CustomersSyncProvider"
             android:authorities="${applicationId}.odoorxcore.core.provider.content.sync.res_partner"
             android:label="@string/sync_label_customers"
             android:multiprocess="true" />
     
         <service
-            android:name="com.ehealthinformatics.odoorxcore.device.services.CustomerSyncService"
+            android:name=".core.base.device.services.CustomerSyncService"
             android:exported="true"
             android:process=":sync_customer">
             <intent-filter>
@@ -31,13 +31,13 @@
     
         <!-- Product Sync Provider & Service  // -->
         <provider
-            android:name="com.ehealthinformatics.odoorxcore.device.providers.ProductsSyncProvider"
+            android:name=".core.base.device.providers.ProductsSyncProvider"
             android:authorities="${applicationId}.odoorxcore.core.provider.content.sync.product_product"
             android:label="@string/sync_label_products"
             android:multiprocess="true" />
     
         <service
-            android:name="com.ehealthinformatics.odoorxcore.device.services.ProductSyncService"
+            android:name=".core.base.device.services.ProductSyncService"
             android:exported="true"
             android:process=":sync_product">
             <intent-filter>
@@ -53,13 +53,13 @@
     
         <!-- Product Image Sync Provider & Service  // -->
         <provider
-            android:name="com.ehealthinformatics.odoorxcore.device.providers.ProductImagesSyncProvider"
+            android:name=".core.base.device.providers.ProductImagesSyncProvider"
             android:authorities="${applicationId}.odoorxcore.core.provider.content.sync.product_image"
             android:label="@string/sync_label_product_images"
             android:multiprocess="true" />
     
         <service
-            android:name="com.ehealthinformatics.odoorxcore.device.services.ProductImageSyncService"
+            android:name=".core.base.device.services.ProductImageSyncService"
             android:exported="true"
             android:process=":sync_product_image">
             <intent-filter>
@@ -74,13 +74,13 @@
     
         <!-- PurchaseList Sync Provider & Service  // -->
         <provider
-            android:name="com.ehealthinformatics.odoorxcore.device.providers.PurchaseSyncProvider"
+            android:name=".core.base.device.providers.PurchaseSyncProvider"
             android:authorities="${applicationId}.odoorxcore.core.provider.content.sync.purchase_order"
             android:label="@string/sync_label_purchases"
             android:multiprocess="true" />
     
         <service
-            android:name="com.ehealthinformatics.odoorxcore.device.services.PurchaseSyncService"
+            android:name=".core.base.device.services.PurchaseSyncService"
             android:exported="true"
             android:process=":sync_purchase">
             <intent-filter>
@@ -94,13 +94,13 @@
     
         <!-- PosOrderList Sync Provider & Service  // -->
         <provider
-            android:name="com.ehealthinformatics.odoorxcore.device.providers.PosOrderSyncProvider"
+            android:name=".core.base.device.providers.PosOrderSyncProvider"
             android:authorities="${applicationId}.odoorxcore.core.provider.content.sync.pos_order"
             android:label="@string/sync_label_pos_order"
             android:multiprocess="true" />
     
         <service
-            android:name="com.ehealthinformatics.odoorxcore.device.services.PosOrderSyncService"
+            android:name=".core.base.device.services.PosOrderSyncService"
             android:exported="true"
             android:process=":sync_point_of_sale">
             <intent-filter>
@@ -114,13 +114,13 @@
     
         <!-- PosOrderLine Sync Provider & Service  // -->
         <provider
-            android:name="com.ehealthinformatics.odoorxcore.device.providers.PosOrderLineSyncProvider"
+            android:name=".core.base.device.providers.PosOrderLineSyncProvider"
             android:authorities="${applicationId}.odoorxcore.core.provider.content.sync.pos_order_line"
             android:label="@string/sync_label_pos_order_line"
             android:multiprocess="true" />
     
         <service
-            android:name="com.ehealthinformatics.odoorxcore.device.services.PosOrderLineSyncService"
+            android:name=".core.base.device.services.PosOrderLineSyncService"
             android:exported="true"
             android:process=":sync_pos_order_line">
             <intent-filter>
@@ -134,13 +134,13 @@
     
         <!-- PosConfigLine Sync Provider & Service  // -->
         <provider
-            android:name="com.ehealthinformatics.odoorxcore.device.providers.PosConfigSyncProvider"
+            android:name=".core.base.device.providers.PosConfigSyncProvider"
             android:authorities="${applicationId}.odoorxcore.core.provider.content.sync.pos_config"
             android:label="@string/sync_label_pos_config"
             android:multiprocess="true" />
     
         <service
-            android:name="com.ehealthinformatics.odoorxcore.device.services.PosConfigSyncService"
+            android:name=".core.base.device.services.PosConfigSyncService"
             android:exported="true"
             android:process=":sync_pos_config">
             <intent-filter>
