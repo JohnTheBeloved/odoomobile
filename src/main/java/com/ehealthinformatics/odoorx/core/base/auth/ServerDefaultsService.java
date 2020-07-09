@@ -57,6 +57,7 @@ public class ServerDefaultsService {
         if (userId == null || userId <= 0) {
             ODomain userDomain = new ODomain();
             userDomain.add(Columns.server_id , "=", userServerId);
+            //TODO: If error
              user = (User) validateResult(userDao, odoo.searchRead(ModelNames.USER, readFields, userDomain, 0, 1, "id desc"));
         } else user = userDao.get(userId, QueryFields.all());
 

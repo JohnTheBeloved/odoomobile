@@ -27,18 +27,19 @@ public abstract class LoadingUtils {
             DaoRepoBase daoRepo = DaoRepoBase.getInstance();
             daoRepo.initDaos(oUser.getUsername());
 
-//            ServerDefaultsService serverDefaultsService = new ServerDefaultsService(daoRepo.getContext(), oUser);
-//            user = serverDefaultsService.syncUser(oUser.getUserId());
-//            if (user != null) {
-//                posSession = serverDefaultsService.syncCurrentOpenSession(user);
-//                if (posSession != null) {
-//                    oUser.setPosSessionId(posSession.getId());
-//                    accountBankStatements = serverDefaultsService.syncSessionStatement(posSession);
-//                    if (accountBankStatements != null) {
-//                        return new SyncConfig(user, posSession);
-//                    }
-//                }
-//            }
+            oUser.setHost("http://192.168.8.103:8069");
+            ServerDefaultsService serverDefaultsService = new ServerDefaultsService(daoRepo.getContext(), oUser);
+            user = serverDefaultsService.syncUser(oUser.getUserId());
+            if (user != null) {
+                posSession = serverDefaultsService.syncCurrentOpenSession(user);
+                if (posSession != null) {
+                    oUser.setPosSessionId(posSession.getId());
+                    accountBankStatements = serverDefaultsService.syncSessionStatement(posSession);
+                    if (accountBankStatements != null) {
+                        return new SyncConfig(user, posSession);
+                    }
+                }
+            }
             return null;
         }
     }

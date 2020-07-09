@@ -25,6 +25,7 @@ public class OdooSyncResponse {
 
     private OdooResponse response = null;
     private Object object;
+    private Object error;
 
     public void setObject(Object obj) {
         object = obj;
@@ -42,11 +43,20 @@ public class OdooSyncResponse {
         return response;
     }
 
+    public void setError(Object obj) {
+        error = obj;
+    }
+
+    public Object getError() {
+        return error;
+    }
+
     @Override
     public String toString() {
         return "OdooSyncResponse{" +
                 "response=" + response +
                 ", object=" + object +
+                ", error=" + error + //TODO: make error concrete
                 '}';
     }
 }

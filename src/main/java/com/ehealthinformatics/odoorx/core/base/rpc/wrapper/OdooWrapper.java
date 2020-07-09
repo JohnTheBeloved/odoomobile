@@ -209,6 +209,7 @@ public class OdooWrapper<T> implements Response.Listener<JSONObject> {
                 backResponse.setResponse(parseToResponse(requestFuture.get()));
             } catch (Exception e) {
                 OdooLog.e(e);
+                backResponse.setError(e);
             }
 
         }
