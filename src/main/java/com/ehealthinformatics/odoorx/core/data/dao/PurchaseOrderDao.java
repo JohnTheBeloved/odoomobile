@@ -17,7 +17,7 @@ import com.ehealthinformatics.odoorx.core.data.LazyList;
 import com.ehealthinformatics.odoorx.core.data.db.Columns;
 import com.ehealthinformatics.odoorx.core.data.db.ModelNames;
 import com.ehealthinformatics.odoorx.core.data.dto.PurchaseOrder;
-import com.ehealthinformatics.odoorx.BuildConfig;
+import com.ehealthinformatics.odoorx.core.BuildConfig;
 
 import static com.ehealthinformatics.odoorx.core.base.orm.fields.OColumn.RelationType;
 

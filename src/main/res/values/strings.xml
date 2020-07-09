@@ -56,4 +56,7 @@
 
     <string name="label_accounts_settings">RxOne</string>
 
+
+    <string name="status_redirecting">Redirecting&#8230;</string>
+
 </resources>

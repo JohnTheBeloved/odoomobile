@@ -1,6 +1,6 @@
 package com.ehealthinformatics.odoorx.core.data.db;
 
-import com.ehealthinformatics.odoorx.BuildConfig;
+import com.ehealthinformatics.odoorx.core.BuildConfig;
 
 ;
 

@@ -27,7 +27,7 @@ import android.util.TypedValue;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import com.ehealthinformatics.odoorx.R;
+import com.ehealthinformatics.odoorx.core.R;
 
 
 public class OAlert {
@@ -170,7 +170,6 @@ public class OAlert {
 
     public static interface OnUserInputListener {
         public void onViewCreated(EditText inputView);
-
         public void onUserInputted(Object value);
     }
 }

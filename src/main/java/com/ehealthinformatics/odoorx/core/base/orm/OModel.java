@@ -54,7 +54,7 @@ import com.ehealthinformatics.odoorx.core.base.utils.OListUtils;
 import com.ehealthinformatics.odoorx.core.base.utils.OStorageUtils;
 import com.ehealthinformatics.odoorx.core.base.utils.StringUtils;
 import com.ehealthinformatics.odoorx.core.data.db.Columns;
-import com.ehealthinformatics.odoorx.BuildConfig;
+import com.ehealthinformatics.odoorx.core.BuildConfig;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -77,7 +77,7 @@ import java.util.Locale;
 public class OModel implements ISyncServiceListener {
 
     public static final String TAG = OModel.class.getSimpleName();
-    private String BASE_AUTHORITY = BuildConfig.APPLICATION_ID + ".core.provider.content";
+    private String BASE_AUTHORITY = BuildConfig.APPLICATION_ID + ".provider.content";
     public static final int INVALID_ROW_ID = -1;
     private OSQLite sqLite = null;
     private Context mContext;
@@ -618,9 +618,6 @@ public class OModel implements ISyncServiceListener {
         }
         return null;
     }
-
-
-
 
     public List<Integer> getServerIds() {
         List<Integer> ids = new ArrayList<>();

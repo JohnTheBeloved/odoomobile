@@ -31,7 +31,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 
-
+import com.ehealthinformatics.odoorx.core.R;
 import com.ehealthinformatics.odoorx.core.base.orm.OdooServerException;
 import com.ehealthinformatics.odoorx.core.data.dao.DaoRepoBase;
 import com.ehealthinformatics.odoorx.core.data.dao.IrModel;
@@ -59,7 +59,6 @@ import com.ehealthinformatics.odoorx.core.base.utils.OResource;
 import com.ehealthinformatics.odoorx.core.base.utils.OdooRecordUtils;
 import com.ehealthinformatics.odoorx.core.base.utils.logger.OLog;
 import com.ehealthinformatics.odoorx.core.config.OConstants;
-import com.ehealthinformatics.odoorx.R;
 
 import java.io.IOException;
 import java.util.ArrayList;

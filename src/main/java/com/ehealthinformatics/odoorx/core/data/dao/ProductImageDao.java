@@ -34,7 +34,7 @@ import com.ehealthinformatics.odoorx.core.base.utils.BitmapUtils;
 import com.ehealthinformatics.odoorx.core.data.db.Columns;
 import com.ehealthinformatics.odoorx.core.data.db.ModelNames;
 import com.ehealthinformatics.odoorx.core.data.dto.ProductImage;
-import com.ehealthinformatics.odoorx.BuildConfig;
+import com.ehealthinformatics.odoorx.core.BuildConfig;
 
 import java.util.ArrayList;
 import java.util.List;

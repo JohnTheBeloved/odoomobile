@@ -37,7 +37,7 @@ import com.ehealthinformatics.odoorx.core.data.LazyList;
 import com.ehealthinformatics.odoorx.core.data.db.Columns;
 import com.ehealthinformatics.odoorx.core.data.dto.Customer;
 import com.ehealthinformatics.odoorx.core.data.dto.Partner;
-import com.ehealthinformatics.odoorx.BuildConfig;
+import com.ehealthinformatics.odoorx.core.BuildConfig;
 
 import java.util.ArrayList;
 import java.util.List;

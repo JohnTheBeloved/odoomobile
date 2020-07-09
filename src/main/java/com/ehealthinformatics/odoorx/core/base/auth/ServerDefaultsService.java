@@ -29,22 +29,16 @@ import java.util.List;
 
 public class ServerDefaultsService {
 
-    private Context context;
-    private Odoo odoo;
+    private OUserAccount oUserAccount;
     private PosSessionDao posSessionDao;
     private ResUsers userDao;
     private AccountBankStatementDao accountBankStatementDao;
     OdooFields readFields = new OdooFields();
     DaoRepoBase daoRepo;
 
-    public ServerDefaultsService(Context context, OUser oUser) {
-        this.context = context;
-        daoRepo = DaoRepoBase.getInstance();
-        try {
-            odoo = Odoo.createQuickInstance(context, oUser.getHost());
-        } catch (OdooVersionException e) {
-            e.printStackTrace();
-        }
+    public ServerDefaultsService(OUserAccount oUserAccount) {
+        this.oUserAccount = oUserAccount;
+        this.daoRepo = DaoRepoBase.getInstance();
         posSessionDao = daoRepo.getDao(PosSessionDao.class);
         userDao = daoRepo.getDao(ResUsers.class);
         accountBankStatementDao = daoRepo.getDao(AccountBankStatementDao.class);
@@ -57,7 +51,7 @@ public class ServerDefaultsService {
         if (userId == null || userId <= 0) {
             ODomain userDomain = new ODomain();
             userDomain.add(Columns.server_id , "=", userServerId);
-             user = (User) validateResult(userDao, odoo.searchRead(ModelNames.USER, readFields, userDomain, 0, 1, "id desc"));
+             user = (User) validateResult(userDao, oUserAccount.getOdoo().searchRead(ModelNames.USER, readFields, userDomain, 0, 1, "id desc"));
         } else user = userDao.get(userId, QueryFields.all());
 
         return user;
@@ -68,7 +62,7 @@ public class ServerDefaultsService {
         if(accountBankStatements.isEmpty()) {
             ODomain userDomain = new ODomain();
             userDomain.add(Columns.AccountBankStatementCol.pos_session_id , "=", posSession.getServerId());
-            OdooResult odooResult = odoo.searchRead(ModelNames.ACCOUNT_BANK_STATEMENT, readFields, userDomain, 0, 1, "id desc");
+            OdooResult odooResult = oUserAccount.getOdoo().searchRead(ModelNames.ACCOUNT_BANK_STATEMENT, readFields, userDomain, 0, 1, "id desc");
 
             ODataRow row = new ODataRow();
             OValues oValues = new OValues();
@@ -105,7 +99,7 @@ public class ServerDefaultsService {
             stateDomain.add(Columns.PosSession.state , "=", Columns.PosSession.State.opened);
             stateDomain.add(Columns.PosSession.state , "=", Columns.PosSession.State.opening_control);
             userDomain.append(stateDomain);
-            posSession = (PosSession) validateResult(posSessionDao, odoo.searchRead(ModelNames.POS_SESSION, null, userDomain, 0, 1, "id desc"));
+            posSession = (PosSession) validateResult(posSessionDao, oUserAccount.getOdoo().searchRead(ModelNames.POS_SESSION, null, userDomain, 0, 1, "id desc"));
         }
          return posSession;
     }

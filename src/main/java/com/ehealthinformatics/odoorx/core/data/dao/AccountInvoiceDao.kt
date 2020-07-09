@@ -20,7 +20,7 @@ import com.ehealthinformatics.odoorx.core.data.dto.Account
 import com.ehealthinformatics.odoorx.core.data.dto.AccountInvoice
 import com.ehealthinformatics.odoorx.core.data.dto.AccountInvoiceLine
 import com.ehealthinformatics.odoorx.core.data.dto.Customer
-import com.ehealthinformatics.odoorx.BuildConfig
+import com.ehealthinformatics.odoorx.core.BuildConfig
 import java.util.*
 import kotlin.collections.ArrayList
 

@@ -42,7 +42,7 @@ import com.ehealthinformatics.odoorx.core.data.db.Columns;
 import com.ehealthinformatics.odoorx.core.data.db.ModelNames;
 import com.ehealthinformatics.odoorx.core.data.dto.Product;
 import com.ehealthinformatics.odoorx.core.data.dto.ProductTemplate;
-import com.ehealthinformatics.odoorx.BuildConfig;
+import com.ehealthinformatics.odoorx.core.BuildConfig;
 
 import java.util.ArrayList;
 import java.util.List;

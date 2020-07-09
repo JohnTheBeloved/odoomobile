@@ -12,7 +12,7 @@ import com.ehealthinformatics.odoorx.core.data.db.Columns
 import com.ehealthinformatics.odoorx.core.data.db.ModelNames
 import com.ehealthinformatics.odoorx.core.data.dto.AccountJournal
 import com.ehealthinformatics.odoorx.core.data.dto.PosConfig
-import com.ehealthinformatics.odoorx.BuildConfig
+import com.ehealthinformatics.odoorx.core.BuildConfig
 
 class PosConfigDao(context: Context, user: OUser?) : OModel(context, ModelNames.POS_CONFIG, user) {
     internal var name = OColumn("Name", OVarchar::class.java)

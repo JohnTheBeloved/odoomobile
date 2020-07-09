@@ -41,7 +41,7 @@ import java.util.List;
 public class OdooAccountManager {
 
     public static final String TAG = OdooAccountManager.class.getSimpleName();
-    public static final String KEY_ACCOUNT_TYPE = "com.ehealthinformatics.auth";
+    public static final String KEY_ACCOUNT_TYPE = "com.ehealthinformatics.odoorx.core.auth";
     public static final String KEY_USER_ACCOUNT_VERSION = "key_user_account_version";
 
     /**

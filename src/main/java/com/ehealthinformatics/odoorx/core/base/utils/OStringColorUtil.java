@@ -25,7 +25,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 
 
-import com.ehealthinformatics.odoorx.R;
+import com.ehealthinformatics.odoorx.core.R;
 
 import java.util.Locale;
 

@@ -20,7 +20,7 @@ import com.ehealthinformatics.odoorx.core.data.dto.Company
 import com.ehealthinformatics.odoorx.core.data.dto.PosOrder
 import com.ehealthinformatics.odoorx.core.data.dto.PosOrderLine
 import com.ehealthinformatics.odoorx.core.data.dto.Product
-import com.ehealthinformatics.odoorx.BuildConfig
+import com.ehealthinformatics.odoorx.core.BuildConfig
 
 class PosOrderLineDao(context: Context?, user: OUser?) : OModel(context, ModelNames.POS_ORDER_LINE, user) {
 
