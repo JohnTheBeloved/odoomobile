@@ -17,7 +17,7 @@ import com.ehealthinformatics.odoorx.core.data.LazyList;
 import com.ehealthinformatics.odoorx.core.data.db.Columns;
 import com.ehealthinformatics.odoorx.core.data.db.ModelNames;
 import com.ehealthinformatics.odoorx.core.data.dto.PurchaseOrder;
-import com.ehealthinformatics.odoorx.BuildConfig;
+import com.ehealthinformatics.odoorx.core.BuildConfig;
 
 import static com.ehealthinformatics.odoorx.core.base.orm.fields.OColumn.RelationType;
 
@@ -25,7 +25,7 @@ public class PurchaseOrderDao extends OModel {
 
     public static final String TAG = PurchaseOrderDao.class.getSimpleName();
     public static final String AUTHORITY = BuildConfig.APPLICATION_ID +
-            ".core.provider.content.sync.purchase_order";
+            ".base.provider.content.sync.purchase_order";
 
     OColumn name = new OColumn("Name", OVarchar.class).setSize(100).setRequired();
     OColumn origin = new OColumn("Origin", OVarchar.class);

@@ -25,4 +25,8 @@ class PosSession(var id: Int?, var serverId: Int?, var name: String?, var user: 
         return oValues
     }
 
+    public override fun toString(): String {
+        return "id: {$id}"
+    }
+
 }

@@ -20,7 +20,7 @@ import com.ehealthinformatics.odoorx.core.data.dto.Account
 import com.ehealthinformatics.odoorx.core.data.dto.AccountInvoice
 import com.ehealthinformatics.odoorx.core.data.dto.AccountInvoiceLine
 import com.ehealthinformatics.odoorx.core.data.dto.Customer
-import com.ehealthinformatics.odoorx.BuildConfig
+import com.ehealthinformatics.odoorx.core.BuildConfig
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -242,9 +242,9 @@ class AccountInvoiceDao(context: Context?, user: OUser?) : OModel(context, Model
 
     companion object {
          @JvmField
-         var AUTHORITY: String = BuildConfig.APPLICATION_ID + ".core.provider.content.sync.pos_order"
+         var AUTHORITY: String = BuildConfig.APPLICATION_ID + ".base.provider.content.sync.pos_order"
          val TAG = AccountInvoiceDao::class.java.simpleName
-         //var AUTHORITY = BuildConfig.APPLICATION_ID + ".core.provider.content.sync.pos_order"
+         //var AUTHORITY = BuildConfig.APPLICATION_ID + ".base.provider.content.sync.pos_order"
     }
 
 }

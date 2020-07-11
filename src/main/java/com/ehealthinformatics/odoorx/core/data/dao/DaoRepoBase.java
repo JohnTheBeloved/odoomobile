@@ -35,10 +35,6 @@ public class DaoRepoBase {
         return instance;
     }
 
-    public static void setInstance(DaoRepoBase instance) {
-        DaoRepoBase.instance = instance;
-    }
-
     private static DaoRepoBase instance;
 
     public static DaoRepoBase getInstance(){
@@ -109,7 +105,7 @@ public class DaoRepoBase {
 
     public <T> T getDao(Class<? extends OModel> klazz){
         if (context != null) {
-            OUser oUser = OUser.current(getContext());
+            OUser oUser = OUser.current(context);
             String username = oUser.getUsername();
             Map<Class, OModel> userOModelInstances = usersOModelInstances.get(username);
             if (userOModelInstances != null)

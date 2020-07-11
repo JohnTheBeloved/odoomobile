@@ -42,7 +42,7 @@ public class OSQLite extends SQLiteOpenHelper {
         super(context, (user != null) ? user.getDBName() : OUser.current(context).getDBName(), null
                 , OConstants.DATABASE_VERSION);
         mContext = context;
-        DaoRepoBase daoRepo = DaoRepoBase.getInstance();
+        daoRepo = DaoRepoBase.getInstance();
         mUser = (user != null) ? user : OUser.current(context);
     }
 

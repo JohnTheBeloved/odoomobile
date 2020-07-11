@@ -21,7 +21,6 @@ package com.ehealthinformatics.odoorx.core.data.dao;
 
 import android.content.Context;
 
-
 import com.ehealthinformatics.odoorx.core.base.orm.ODataRow;
 import com.ehealthinformatics.odoorx.core.base.orm.OModel;
 import com.ehealthinformatics.odoorx.core.base.orm.fields.OColumn;

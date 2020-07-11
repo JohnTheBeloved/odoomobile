@@ -34,7 +34,7 @@ import com.ehealthinformatics.odoorx.core.base.utils.BitmapUtils;
 import com.ehealthinformatics.odoorx.core.data.db.Columns;
 import com.ehealthinformatics.odoorx.core.data.db.ModelNames;
 import com.ehealthinformatics.odoorx.core.data.dto.ProductImage;
-import com.ehealthinformatics.odoorx.BuildConfig;
+import com.ehealthinformatics.odoorx.core.BuildConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,7 @@ public class ProductImageDao extends OModel {
 
     public static final String TAG = ProductDao.class.getSimpleName();
     public static final String AUTHORITY = BuildConfig.APPLICATION_ID +
-            ".core.provider.content.sync.product_image";
+            ".base.provider.content.sync.product_image";
 
     OColumn image = new OColumn("Image", OVarchar.class).setSize(100).setRequired();
     OColumn product_tmpl_id = new OColumn("Product", ProductTemplateDao.class, OColumn.RelationType.ManyToOne).setRequired();

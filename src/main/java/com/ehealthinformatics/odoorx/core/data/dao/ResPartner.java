@@ -37,14 +37,14 @@ import com.ehealthinformatics.odoorx.core.data.LazyList;
 import com.ehealthinformatics.odoorx.core.data.db.Columns;
 import com.ehealthinformatics.odoorx.core.data.dto.Customer;
 import com.ehealthinformatics.odoorx.core.data.dto.Partner;
-import com.ehealthinformatics.odoorx.BuildConfig;
+import com.ehealthinformatics.odoorx.core.BuildConfig;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ResPartner extends OModel {
     public static final String AUTHORITY = BuildConfig.APPLICATION_ID +
-            ".core.provider.content.sync.res_partner";
+            ".base.provider.content.sync.res_partner";
 
     OColumn name = new OColumn("Name", OVarchar.class).setSize(100).setRequired();
     //OColumn display_name = new OColumn("Display Name", OVarchar.class).setSize(100).setRequired();

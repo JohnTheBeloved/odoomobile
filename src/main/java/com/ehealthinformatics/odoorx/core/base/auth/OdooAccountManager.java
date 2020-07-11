@@ -41,7 +41,7 @@ import java.util.List;
 public class OdooAccountManager {
 
     public static final String TAG = OdooAccountManager.class.getSimpleName();
-    public static final String KEY_ACCOUNT_TYPE = "com.ehealthinformatics.auth";
+    public static final String KEY_ACCOUNT_TYPE = "com.ehealthinformatics.odoorx.core.auth";
     public static final String KEY_USER_ACCOUNT_VERSION = "key_user_account_version";
 
     /**
@@ -95,6 +95,8 @@ public class OdooAccountManager {
     public static boolean createAccount(Context context, OUser user) {
         AccountManager accountManager = AccountManager.get(context);
         Account account = new Account(user.getAndroidName(), KEY_ACCOUNT_TYPE);
+        AccountManagerFuture<Boolean> result = accountManager.
+                removeAccount(account, null, null);
         if (accountManager.addAccountExplicitly(account, String.valueOf(user.getPassword()),
                 user.getAsBundle())) {
             OPreferenceManager pref = new OPreferenceManager(context);
@@ -231,9 +233,6 @@ public class OdooAccountManager {
      * @return new user object
      */
     public static OUser login(Context context, String username) {
-        // Setting odoo instance to null
-        DaoRepoBase daoRepo = DaoRepoBase.getInstance();
-        daoRepo.setOdoo(null, null);
         OUser activeUser = getActiveUser(context);
         // Logging out user if any
         if (activeUser != null) {

@@ -67,7 +67,7 @@ public class OdooLog {
                 break;
             }
         }
-        return String.format(Locale.US, "[%id] %s: %s",
+        return String.format(Locale.US, "[id] %s: %s",
                 Thread.currentThread().getId(), caller, msg);
     }
 

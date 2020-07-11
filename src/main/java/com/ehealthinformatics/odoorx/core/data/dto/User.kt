@@ -9,4 +9,9 @@ open class User(var id: Int, var serverId: Int?, var partner: Partner?, var comp
         return oValues
     }
 
+    public override fun toString(): String {
+        return "id: {$id}"
+    }
+
+
 }

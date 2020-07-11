@@ -22,8 +22,7 @@ package com.ehealthinformatics.odoorx.core.base.utils;
 import android.app.AlertDialog;
 import android.content.Context;
 
-import com.ehealthinformatics.odoorx.R;
-
+import com.ehealthinformatics.odoorx.core.R;
 
 public class OAlertDialog {
 

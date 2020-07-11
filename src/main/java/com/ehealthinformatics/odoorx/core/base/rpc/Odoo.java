@@ -39,7 +39,7 @@ import java.net.URL;
 
 public class Odoo extends OdooWrapper<Odoo> {
     public static final String TAG = Odoo.class.getSimpleName();
-    public static Boolean DEBUG = false;
+    public static Boolean DEBUG = true;
     public static Integer REQUEST_TIMEOUT_MS = DefaultRetryPolicy.DEFAULT_TIMEOUT_MS;
     public static Integer DEFAULT_MAX_RETRIES = DefaultRetryPolicy.DEFAULT_MAX_RETRIES;
 

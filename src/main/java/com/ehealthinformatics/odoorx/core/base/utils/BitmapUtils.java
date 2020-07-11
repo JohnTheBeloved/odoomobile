@@ -42,7 +42,7 @@ import android.provider.MediaStore;
 import android.text.TextPaint;
 import android.util.Base64;
 
-import com.ehealthinformatics.odoorx.R;
+import com.ehealthinformatics.odoorx.core.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

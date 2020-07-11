@@ -23,7 +23,7 @@ import com.ehealthinformatics.odoorx.core.base.rpc.Odoo;
 import com.ehealthinformatics.odoorx.core.base.support.OUser;
 
 public interface IOdooLoginCallback {
-    void onLoginSuccess(Odoo odoo, OUser user);
+    void onAuthenticateSuccess(Odoo odoo, OUser user);
 
-    void onLoginFail(OdooError error);
+    void onAuthenticateError(OdooError error);
 }

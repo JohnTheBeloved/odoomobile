@@ -42,7 +42,7 @@ import com.ehealthinformatics.odoorx.core.data.db.Columns;
 import com.ehealthinformatics.odoorx.core.data.db.ModelNames;
 import com.ehealthinformatics.odoorx.core.data.dto.Product;
 import com.ehealthinformatics.odoorx.core.data.dto.ProductTemplate;
-import com.ehealthinformatics.odoorx.BuildConfig;
+import com.ehealthinformatics.odoorx.core.BuildConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +53,7 @@ public class ProductDao extends OModel {
 
     public static final String TAG = ProductDao.class.getSimpleName();
     public static final String AUTHORITY = BuildConfig.APPLICATION_ID +
-            ".core.provider.content.sync.product_product";
+            ".base.provider.content.sync.product_product";
 
     OColumn name = new OColumn("Name", OVarchar.class).setSize(100).setRequired();
     OColumn active = new OColumn("Active", OBoolean.class).setDefaultValue(false);

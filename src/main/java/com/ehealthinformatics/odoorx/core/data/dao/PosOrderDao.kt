@@ -20,7 +20,7 @@ import com.ehealthinformatics.odoorx.core.data.db.ModelNames
 import com.ehealthinformatics.odoorx.core.data.dto.Customer
 import com.ehealthinformatics.odoorx.core.data.dto.PosOrder
 import com.ehealthinformatics.odoorx.core.data.dto.PosOrderLine
-import com.ehealthinformatics.odoorx.BuildConfig
+import com.ehealthinformatics.odoorx.core.BuildConfig
 
 class PosOrderDao(context: Context?, user: OUser?) : OModel(context, ModelNames.POS_ORDER, user) {
 
@@ -247,9 +247,9 @@ class PosOrderDao(context: Context?, user: OUser?) : OModel(context, ModelNames.
 
     companion object {
          @JvmField
-         var AUTHORITY: String = BuildConfig.APPLICATION_ID + ".core.provider.content.sync.pos_order"
+         var AUTHORITY: String = BuildConfig.APPLICATION_ID + ".base.provider.content.sync.pos_order"
          val TAG = PosOrderDao::class.java.simpleName
-         //var AUTHORITY = BuildConfig.APPLICATION_ID + ".core.provider.content.sync.pos_order"
+         //var AUTHORITY = BuildConfig.APPLICATION_ID + ".base.provider.content.sync.pos_order"
     }
 
 }

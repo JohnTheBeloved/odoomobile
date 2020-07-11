@@ -20,7 +20,7 @@ import com.ehealthinformatics.odoorx.core.data.dto.Company
 import com.ehealthinformatics.odoorx.core.data.dto.PosOrder
 import com.ehealthinformatics.odoorx.core.data.dto.PosOrderLine
 import com.ehealthinformatics.odoorx.core.data.dto.Product
-import com.ehealthinformatics.odoorx.BuildConfig
+import com.ehealthinformatics.odoorx.core.BuildConfig
 
 class PosOrderLineDao(context: Context?, user: OUser?) : OModel(context, ModelNames.POS_ORDER_LINE, user) {
 
@@ -98,6 +98,6 @@ class PosOrderLineDao(context: Context?, user: OUser?) : OModel(context, ModelNa
     companion object {
         val TAG = PosOrderLineDao::class.java.simpleName
         @JvmField
-        var AUTHORITY = BuildConfig.APPLICATION_ID + ".core.provider.content.sync.pos_order_line"
+        var AUTHORITY = BuildConfig.APPLICATION_ID + ".base.provider.content.sync.pos_order_line"
     }
 }

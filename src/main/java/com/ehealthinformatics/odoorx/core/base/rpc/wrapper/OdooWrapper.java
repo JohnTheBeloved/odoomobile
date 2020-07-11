@@ -116,7 +116,7 @@ public class OdooWrapper<T> implements Response.Listener<JSONObject> {
                                 @Override
                                 public void onError(OdooError error) {
                                     if (mIOdooConnectionListener != null) {
-                                        mIOdooConnectionListener.onError(error);
+                                        mIOdooConnectionListener.onConnectError(error);
                                     }
                                 }
                             });
@@ -130,7 +130,7 @@ public class OdooWrapper<T> implements Response.Listener<JSONObject> {
                     @Override
                     public void onError(OdooError error) {
                         if (mIOdooConnectionListener != null) {
-                            mIOdooConnectionListener.onError(error);
+                            mIOdooConnectionListener.onConnectError(error);
                         }
                     }
                 });
@@ -402,7 +402,7 @@ public class OdooWrapper<T> implements Response.Listener<JSONObject> {
                         @Override
                         public void onError(OdooError error) {
                             if (mIOdooConnectionListener != null) {
-                                mIOdooConnectionListener.onError(error);
+                                mIOdooConnectionListener.onConnectError(error);
                             }
                         }
                     }, backResponse);
@@ -456,7 +456,7 @@ public class OdooWrapper<T> implements Response.Listener<JSONObject> {
                     if (res.get("uid") instanceof Boolean) {
                         OdooError error = new OdooError("Authentication Fail", null);
                         error.setResponseCode(Odoo.ErrorCode.AuthenticationFail.get());
-                        callback.onLoginFail(error);
+                        callback.onAuthenticateError(error);
                     } else {
                         if (!(res.get("uid") instanceof Boolean)) {
                             res.put("username", username); // FIX for 10.0+
@@ -469,7 +469,7 @@ public class OdooWrapper<T> implements Response.Listener<JSONObject> {
 
                 @Override
                 public void onError(OdooError error) {
-                    callback.onLoginFail(error);
+                    callback.onAuthenticateError(error);
                 }
             }, backResponse);
         } catch (Exception e) {
@@ -930,13 +930,13 @@ public class OdooWrapper<T> implements Response.Listener<JSONObject> {
                 @Override
                 public void onResponse(OdooResult response) {
                     users[0] = parseUserObject(users[0], response);
-                    callback.onLoginSuccess(mOdoo, users[0]);
+                    callback.onAuthenticateSuccess(mOdoo, users[0]);
 
                 }
 
                 @Override
                 public void onError(OdooError error) {
-                    callback.onLoginFail(error);
+                    callback.onAuthenticateError(error);
                 }
             });
         }

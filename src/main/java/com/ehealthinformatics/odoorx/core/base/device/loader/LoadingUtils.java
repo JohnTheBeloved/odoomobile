@@ -1,5 +1,6 @@
 package com.ehealthinformatics.odoorx.core.base.device.loader;
 
+import com.ehealthinformatics.odoorx.core.base.auth.OUserAccount;
 import com.ehealthinformatics.odoorx.core.base.auth.ServerDefaultsService;
 import com.ehealthinformatics.odoorx.core.base.support.OUser;
 import com.ehealthinformatics.odoorx.core.data.dao.DaoRepoBase;
@@ -14,21 +15,22 @@ public abstract class LoadingUtils {
 
     public static class ArtifactsLoader {
 
+        private OUserAccount oUserAccount;
         private OUser oUser;
 
-        public ArtifactsLoader(final OUser oUser) {
-            this.oUser = oUser;
+        public ArtifactsLoader(final OUserAccount oUserAccount) {
+            this.oUserAccount = oUserAccount;
+            this.oUser = oUserAccount.getOUser();
         }
 
-        public SyncConfig init() {
+        public SyncConfig load() {
             User user;
             PosSession posSession;
             List<AccountBankStatement> accountBankStatements;
             DaoRepoBase daoRepo = DaoRepoBase.getInstance();
             daoRepo.initDaos(oUser.getUsername());
 
-            oUser.setHost("http://192.168.8.103:8069");
-            ServerDefaultsService serverDefaultsService = new ServerDefaultsService(daoRepo.getContext(), oUser);
+            ServerDefaultsService serverDefaultsService = new ServerDefaultsService(oUserAccount);
             user = serverDefaultsService.syncUser(oUser.getUserId());
             if (user != null) {
                 posSession = serverDefaultsService.syncCurrentOpenSession(user);
@@ -43,6 +45,5 @@ public abstract class LoadingUtils {
             return null;
         }
     }
-
 
 }

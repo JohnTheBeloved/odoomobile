@@ -231,7 +231,7 @@ public class BaseModelProvider extends ContentProvider {
                 if (values[1].size() > 0) {
                     storeUpdateRelationRecords(model, values[1], selection, selectionArgs);
                 }
-
+                db.close();
                 break;
             case SINGLE_ROW:
                 String row_id = uri.getLastPathSegment();
@@ -241,6 +241,7 @@ public class BaseModelProvider extends ContentProvider {
                 if (values[1].size() > 0) {
                     storeUpdateRelationRecords(model, values[1], OColumn.ROW_ID + "  = ?", new String[]{row_id});
                 }
+                db.close();//TODO: Close
                 break;
             case UriMatcher.NO_MATCH:
                 break;

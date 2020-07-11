@@ -1,6 +1,6 @@
 package com.ehealthinformatics.odoorx.core.data.db;
 
-import com.ehealthinformatics.odoorx.BuildConfig;
+import com.ehealthinformatics.odoorx.core.BuildConfig;
 
 ;
 
@@ -30,7 +30,7 @@ public class ModelNames {
 
 
     public static String getAuthority(String modelName){
-       return BuildConfig.APPLICATION_ID + ".odoorxcore.core.provider.content.sync." + modelName.replace(".", "_");
+       return BuildConfig.APPLICATION_ID + ".base.provider.content.sync." + modelName.replace(".", "_");
     }
 
 }

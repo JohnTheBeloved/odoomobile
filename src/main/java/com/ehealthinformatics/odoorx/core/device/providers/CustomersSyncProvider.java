@@ -15,14 +15,18 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http:www.gnu.org/licenses/>
  * <p>
- * Created on 21/4/15 5:52 PM
+ * Created on 2/1/15 2:25 PM
  */
-package com.ehealthinformatics.odoorx.core.base.rpc.listeners;
+package com.ehealthinformatics.odoorx.core.device.providers;
 
-import com.ehealthinformatics.odoorx.core.base.rpc.Odoo;
+import com.ehealthinformatics.odoorx.core.base.orm.provider.BaseModelProvider;
+import com.ehealthinformatics.odoorx.core.data.dao.ResPartner;
 
-public interface IOdooConnectionListener {
-    void onConnect(Odoo odoo);
+public class CustomersSyncProvider extends BaseModelProvider {
+    public static final String TAG = CustomersSyncProvider.class.getSimpleName();
 
-    void onConnectError(OdooError error);
+    @Override
+    public String authority() {
+        return ResPartner.AUTHORITY;
+    }
 }
