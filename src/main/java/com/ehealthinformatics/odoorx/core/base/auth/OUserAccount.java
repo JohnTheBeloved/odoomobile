@@ -59,6 +59,13 @@ public class OUserAccount implements IOdooLoginCallback, IOdooConnectionListener
         return oUserAccount;
     }
 
+    public static OUserAccount getInstance(Context context, String hostUrl, ILoginProgressStatus iLoginProgressStatus, IConfigLoadListener configLoadListener)  throws OdooVersionException{
+        OUserAccount oUserAccount = new OUserAccount(context,  hostUrl, "", "", "", iLoginProgressStatus, configLoadListener);
+        oUserAccount.setOdoo(Odoo.createInstance(context, hostUrl).setOnConnect(oUserAccount));
+        return oUserAccount;
+    }
+
+
     @Override
     public void onConnect(Odoo odoo) {
         this.odoo = odoo;
@@ -79,6 +86,10 @@ public class OUserAccount implements IOdooLoginCallback, IOdooConnectionListener
     }
 
     public void authenticate(){
+        odoo.authenticate(username, password, database, this);
+    }
+
+    public void authenticate(String username, String password, String database){
         odoo.authenticate(username, password, database, this);
     }
 
@@ -168,6 +179,9 @@ public class OUserAccount implements IOdooLoginCallback, IOdooConnectionListener
         return  user;
     }
 
+    public List<String> getDatabases() {
+        return databases;
+    }
 
     private void removeUser(OUser oUser){
         OdooAccountManager.logout(context, oUser.getAndroidName());
