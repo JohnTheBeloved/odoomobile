@@ -27,8 +27,6 @@ public abstract class LoadingUtils {
             User user;
             PosSession posSession;
             List<AccountBankStatement> accountBankStatements;
-            DaoRepoBase daoRepo = DaoRepoBase.getInstance();
-            daoRepo.initDaos(oUser.getUsername());
 
             ServerDefaultsService serverDefaultsService = new ServerDefaultsService(oUserAccount);
             user = serverDefaultsService.syncUser(oUser.getUserId());
