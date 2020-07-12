@@ -81,8 +81,8 @@ public class ProductDao extends OModel {
     public ODomain defaultDomain()  {
         ODomain oDomain = super.defaultDomain();
         oDomain.add("product_tmpl_id.active", "=", "true");
-        oDomain.add("product_tmpl_id.is_medicine", "!=", "true");
-        oDomain.add("name", "=", "Faded SkyBlu Denim Jeans");
+//        oDomain.add("product_tmpl_id.is_medicine", "!=", "true");
+//        oDomain.add("name", "=", "Faded SkyBlu Denim Jeans");
         return oDomain;
     }
 
