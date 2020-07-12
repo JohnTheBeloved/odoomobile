@@ -1,9 +1,8 @@
-package com.ehealthinformatics.odoorx.core.base.device.loader;
+package com.ehealthinformatics.odoorx.core.base.auth.device.loader;
 
 import com.ehealthinformatics.odoorx.core.base.auth.OUserAccount;
 import com.ehealthinformatics.odoorx.core.base.auth.ServerDefaultsService;
 import com.ehealthinformatics.odoorx.core.base.support.OUser;
-import com.ehealthinformatics.odoorx.core.data.dao.DaoRepoBase;
 import com.ehealthinformatics.odoorx.core.data.dto.AccountBankStatement;
 import com.ehealthinformatics.odoorx.core.data.dto.PosSession;
 import com.ehealthinformatics.odoorx.core.data.dto.SyncConfig;

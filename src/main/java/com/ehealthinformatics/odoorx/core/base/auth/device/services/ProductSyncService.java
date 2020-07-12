@@ -17,7 +17,7 @@
  *
  * Created on 2/1/15 11:07 AM
  */
-package com.ehealthinformatics.odoorx.core.base.device.services;
+package com.ehealthinformatics.odoorx.core.base.auth.device.services;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -25,14 +25,14 @@ import android.os.Bundle;
 import com.ehealthinformatics.odoorx.core.base.service.OSyncAdapter;
 import com.ehealthinformatics.odoorx.core.base.service.OSyncService;
 import com.ehealthinformatics.odoorx.core.base.support.OUser;
-import com.ehealthinformatics.odoorx.core.data.dao.ResPartner;
+import com.ehealthinformatics.odoorx.core.data.dao.ProductDao;
 
-public class CustomerSyncService extends OSyncService {
-    public static final String TAG = CustomerSyncService.class.getSimpleName();
+public class ProductSyncService extends OSyncService {
+    public static final String TAG = ProductSyncService.class.getSimpleName();
 
     @Override
     public OSyncAdapter getSyncAdapter(OSyncService service, Context context) {
-        return new OSyncAdapter(context, ResPartner.class, service, true);
+        return new OSyncAdapter(context, ProductDao.class, this, true);
     }
 
     @Override

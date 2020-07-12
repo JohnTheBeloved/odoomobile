@@ -20,22 +20,22 @@ import java.util.List;
 
 public class OUserAccount implements IOdooLoginCallback, IOdooConnectionListener {
     private String TAG = OUserAccount.class.getSimpleName();
-    Context context;
-    String hostUrl;
-    String username;
-    String password;
-    String database;
-    OUser user;
-    Odoo odoo;
-    AccountCreator accountCreator;
-    OdooError odooError;
-    List<String> databases;
+    private Context context;
+    private String hostUrl;
+    private String username;
+    private String password;
+    private String database;
+    private OUser user;
+    private Odoo odoo;
+    private AccountCreator accountCreator;
+    private OdooError odooError;
+    private List<String> databases;
 
-    ILoginProgressStatus loginProgressStatus;
-    IConfigLoadListener configLoadListener;
+    private ILoginProgressStatus loginProgressStatus;
+    private IConfigLoadListener configLoadListener;
 
     private OUserAccount(Context context, String hostUrl, String username, String password, String database,  ILoginProgressStatus loginProgressStatus, IConfigLoadListener configLoadListener){
-        accountCreator = new AccountCreator();
+        this.accountCreator = new AccountCreator();
         this.context = context;
         this.loginProgressStatus = loginProgressStatus;
         this.configLoadListener = configLoadListener;
@@ -43,7 +43,7 @@ public class OUserAccount implements IOdooLoginCallback, IOdooConnectionListener
         this.database = database;
         this.username = username;
         this.password = password;
-        databases = new ArrayList<>();
+        this.databases = new ArrayList<>();
     }
 
     public static OUserAccount getInstance(Context context, OUser oUser, ILoginProgressStatus loginProgressStatus,  IConfigLoadListener configLoadListener) throws OdooVersionException {

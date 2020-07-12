@@ -184,10 +184,11 @@ public class OSyncAdapter extends AbstractThreadedSyncAdapter {
         try {
             //STEP 1: Getting list data from server API
             syncProcess.update(SyncStatus.API_CALLED, "Calling server now at " + ODateUtils.getDate());
+            ODomain idFilterDommain = new ODomain();             idFilterDommain.add("id", "in",  new ArrayList(syncProcess.getSyncModel().getPullToDeviceIds()));
             OdooResult response = mOdoo
                     .withRetryPolicy(OConstants.RPC_REQUEST_TIME_OUT, OConstants.RPC_REQUEST_RETRIES)
                     .searchRead(oModel.getModelName(), getFields(oModel)
-                            , oDomain, 0, 20, "create_date DESC ");
+                            , idFilterDommain, 0, 20, "create_date DESC ");
 
             msg = "Sync api call response received for " + modelName + " at " + ODateUtils.getDate();
             syncProcess.update(SyncStatus.SERVER_RESPONSE_RECEIVED, msg);

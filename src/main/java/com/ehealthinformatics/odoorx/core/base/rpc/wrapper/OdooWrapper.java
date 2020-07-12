@@ -324,8 +324,7 @@ public class OdooWrapper<T> implements Response.Listener<JSONObject> {
             }
         }, backResponse);
     }
-
-
+    
     public List<String> getDatabaseList() {
         OdooSyncResponse response = new OdooSyncResponse();
         getDatabaseList(null, response);

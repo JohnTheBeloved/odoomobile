@@ -17,7 +17,7 @@
  * <p>
  * Created on 2/1/15 2:25 PM
  */
-package com.ehealthinformatics.odoorx.core.base.device.providers;
+package com.ehealthinformatics.odoorx.core.base.auth.device.providers;
 
 import com.ehealthinformatics.odoorx.core.base.orm.provider.BaseModelProvider;
 import com.ehealthinformatics.odoorx.core.data.dao.PosOrderDao;

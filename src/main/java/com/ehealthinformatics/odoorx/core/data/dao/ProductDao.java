@@ -36,7 +36,9 @@ import com.ehealthinformatics.odoorx.core.base.orm.fields.types.OFloat;
 import com.ehealthinformatics.odoorx.core.base.orm.fields.types.OVarchar;
 import com.ehealthinformatics.odoorx.core.base.rpc.helper.ODomain;
 import com.ehealthinformatics.odoorx.core.base.support.OUser;
+import com.ehealthinformatics.odoorx.core.base.utils.BitmapUtils;
 import com.ehealthinformatics.odoorx.core.base.utils.ImageUtils;
+import com.ehealthinformatics.odoorx.core.base.utils.StringUtils;
 import com.ehealthinformatics.odoorx.core.data.LazyList;
 import com.ehealthinformatics.odoorx.core.data.db.Columns;
 import com.ehealthinformatics.odoorx.core.data.db.ModelNames;
@@ -164,9 +166,9 @@ public class ProductDao extends OModel {
         if(qf.contains(Columns.server_id)) serverId = row.getInt(Columns.server_id);
         if(qf.contains(Columns.name)) name = row.getString(Columns.name);
         if(qf.contains(Columns.active)) active = Boolean.valueOf(row.getString(Columns.ProductCol.active));
-        if(qf.contains(Columns.ProductCol.image)) image = ImageUtils.getBitmapFromString(getContext(), row.getString(Columns.ProductCol.image));
-        if(qf.contains(Columns.ProductCol.image_small)) imageSmall = ImageUtils.getBitmapFromString(getContext(), row.getString(Columns.ProductCol.image_small));
-        if(qf.contains(Columns.ProductCol.image_medium)) imageMedium = ImageUtils.getBitmapFromString(getContext(), row.getString(Columns.ProductCol.image_medium));
+        if(qf.contains(Columns.ProductCol.image)) image = getImageBitmap(row, Columns.ProductCol.image);
+        if(qf.contains(Columns.ProductCol.image_small)) imageSmall = getImageBitmap(row, Columns.ProductCol.image_small);
+        if(qf.contains(Columns.ProductCol.image_medium)) imageMedium = getImageBitmap(row, Columns.ProductCol.image_medium);
         if(qf.contains(Columns.ProductCol.lst_price)) price = row.getFloat(Columns.ProductCol.lst_price);
         if(qf.contains(Columns.ProductCol.cost_price)) cost = row.getFloat(Columns.ProductCol.cost_price);
         if(qf.contains(Columns.ProductCol.qty_available)) qtyAvailable = row.getFloat(Columns.ProductCol.qty_available);
@@ -178,6 +180,16 @@ public class ProductDao extends OModel {
                 price, qtyAvailable,
                 defaultCode, code, cost);
         return  product;
+    }
+
+    private Bitmap getImageBitmap(ODataRow row, String col) {
+        String imageString = row.getString(col);
+        if(StringUtils.isNotEmpty(imageString)) {
+            return ImageUtils.getBitmapFromString(getContext(), imageString);
+        }
+        String name = row.getString(Columns.name).substring(0,1);
+        return BitmapUtils.getAlphabetImage(getContext(), name);
+
     }
 
     @Override

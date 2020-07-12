@@ -17,16 +17,16 @@
  * <p>
  * Created on 2/1/15 2:25 PM
  */
-package com.ehealthinformatics.odoorx.core.base.device.providers;
+package com.ehealthinformatics.odoorx.core.base.auth.device.providers;
 
 import com.ehealthinformatics.odoorx.core.base.orm.provider.BaseModelProvider;
-import com.ehealthinformatics.odoorx.core.data.dao.PurchaseOrderDao;
+import com.ehealthinformatics.odoorx.core.data.dao.ProductImageDao;
 
-public class PurchaseSyncProvider extends BaseModelProvider {
-    public static final String TAG = PurchaseSyncProvider.class.getSimpleName();
+public class ProductImagesSyncProvider extends BaseModelProvider {
+    public static final String TAG = ProductImagesSyncProvider.class.getSimpleName();
 
     @Override
     public String authority() {
-        return PurchaseOrderDao.AUTHORITY;
+        return ProductImageDao.AUTHORITY;
     }
 }
