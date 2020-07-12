@@ -116,7 +116,6 @@ public class DaoRepoBase {
 
     public boolean isDaosinitialized(String username){
         Map<Class, OModel> userOModelInstances = usersOModelInstances.get(username);
-
         return  userOModelInstances != null && userOModelInstances.size() > 0;
     }
 

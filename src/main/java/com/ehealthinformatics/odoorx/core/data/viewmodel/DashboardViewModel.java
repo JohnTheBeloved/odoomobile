@@ -13,7 +13,7 @@ import com.ehealthinformatics.odoorx.core.data.dao.PosOrderDao;
 import com.ehealthinformatics.odoorx.core.data.dao.PosSessionDao;
 import com.ehealthinformatics.odoorx.core.data.dao.ProductDao;
 import com.ehealthinformatics.odoorx.core.data.dao.ResPartner;
-import com.ehealthinformatics.odoorx.core.data.dto.RxShopDashboard;
+import com.ehealthinformatics.odoorx.core.data.dto.Dashboard;
 import com.ehealthinformatics.odoorx.core.data.dto.PosSession;
 
 public class DashboardViewModel extends ViewModel {
@@ -21,7 +21,7 @@ public class DashboardViewModel extends ViewModel {
     private PosOrderDao posOrderDao;
     private ResPartner partnerDao;
     private PosSessionDao posSessionDao;
-    private final MutableLiveData<RxShopDashboard> selected = new MutableLiveData<>();
+    private final MutableLiveData<Dashboard> selected = new MutableLiveData<>();
 
     public DashboardViewModel() {
         DaoRepoBase daoRepo = DaoRepoBase.getInstance();
@@ -32,9 +32,9 @@ public class DashboardViewModel extends ViewModel {
     }
 
     public void loadDashboardData() {
-        new AsyncTask<Void,Void, RxShopDashboard>() {
+        new AsyncTask<Void,Void, Dashboard>() {
             @Override
-            protected RxShopDashboard doInBackground(Void... voids) {
+            protected Dashboard doInBackground(Void... voids) {
                 String noOfCustomers = partnerDao.count(null, null) + "";
                 String noOfOrders = posOrderDao.count(null, null) + "";
                 String noOfSessions = posSessionDao.count(null, null) + "";
@@ -42,17 +42,17 @@ public class DashboardViewModel extends ViewModel {
                 PosSession currentSession = posSessionDao.current();
                 String totalPayment = posOrderDao.totalPayments(currentSession.getId()) + "";
                 String startAt = currentSession.getStartAt() == null ? "Not Started" : DateUtils.formatToYYDDMMHHMMSS(currentSession.getStartAt());
-                return new RxShopDashboard(posSessionDao.getUser().toDTO(posOrderDao.userDao), noOfCustomers, noOfOrders, noOfSessions,noOfProducts, totalPayment,
+                return new Dashboard(posSessionDao.getUser().toDTO(posOrderDao.userDao), noOfCustomers, noOfOrders, noOfSessions,noOfProducts, totalPayment,
                       currentSession,"200,000", startAt, "200,000", "200,000");
             }
             @Override
-            protected void onPostExecute(RxShopDashboard data) {
+            protected void onPostExecute(Dashboard data) {
                 selected.setValue(data);
             }
         }.execute();
     }
 
-    public LiveData<RxShopDashboard> getDashboardData() {
+    public LiveData<Dashboard> getDashboardData() {
         return selected;
     }
 

@@ -171,7 +171,9 @@ public class BaseModelProvider extends ContentProvider {
                     storeUpdateRelationRecords(model, values[1], OColumn.ROW_ID + "  = ?",
                             new String[]{new_id + ""});
                 }
+                db.close();
                 return Uri.withAppendedPath(uri, new_id + "");
+
             case SINGLE_ROW:
                 throw new UnsupportedOperationException(
                         "Insert not supported on URI: " + uri);
@@ -194,11 +196,13 @@ public class BaseModelProvider extends ContentProvider {
             case COLLECTION:
                 SQLiteDatabase db = model.getWritableDatabase();
                 count = db.delete(model.getTableName(), selection, selectionArgs);
+                db.close();
                 break;
             case SINGLE_ROW:
                 db = model.getWritableDatabase();
                 String row_id = uri.getLastPathSegment();
                 count = db.delete(model.getTableName(), OColumn.ROW_ID + "  = ?", new String[]{row_id});
+                db.close();
                 break;
             case UriMatcher.NO_MATCH:
                 break;

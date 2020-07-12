@@ -98,7 +98,7 @@ public class OSyncAdapter extends AbstractThreadedSyncAdapter {
         mModelClass = model;
         mService = service;
         preferenceManager = new OPreferenceManager(mContext);
-        daoRepo = daoRepo.getInstance();
+        daoRepo = DaoRepoBase.init(context);
     }
 
     public OSyncAdapter setDomain(ODomain domain) {
@@ -176,25 +176,22 @@ public class OSyncAdapter extends AbstractThreadedSyncAdapter {
         String modelName = syncProcess.getOModel().getModelName();
         OUser user = syncProcess.getOUser();
         ODomain oDomain = syncProcess.getODomain();
-
         String msg = "Sync for " + modelName + " Started at " + ODateUtils.getDate();
         syncProcess.update(SyncStatus.STARTED, msg);
         //Log.v(TAG, msg);
-
         try {
             //STEP 1: Getting list data from server API
             syncProcess.update(SyncStatus.API_CALLED, "Calling server now at " + ODateUtils.getDate());
-            ODomain idFilterDommain = new ODomain();             idFilterDommain.add("id", "in",  new ArrayList(syncProcess.getSyncModel().getPullToDeviceIds()));
+          ///  ODomain idFilterDommain = new ODomain();             idFilterDommain.add("id", "in",  new ArrayList(syncProcess.getSyncModel().getPullToDeviceIds()));
             OdooResult response = mOdoo
                     .withRetryPolicy(OConstants.RPC_REQUEST_TIME_OUT, OConstants.RPC_REQUEST_RETRIES)
                     .searchRead(oModel.getModelName(), getFields(oModel)
-                            , idFilterDommain, 0, 20, "create_date DESC ");
-
+                            , oDomain, 0, 20, "create_date DESC ");
             msg = "Sync api call response received for " + modelName + " at " + ODateUtils.getDate();
+            Thread.sleep(10000);
             syncProcess.update(SyncStatus.SERVER_RESPONSE_RECEIVED, msg);
             //Step 1a: Null response.
             //TODO: Retry logic may be useful here cos of funny failures
-
             if (response == null) {
               handleNullResponse(syncProcess);
               return;
