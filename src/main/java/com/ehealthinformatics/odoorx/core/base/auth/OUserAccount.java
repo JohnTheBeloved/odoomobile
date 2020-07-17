@@ -13,7 +13,6 @@ import com.ehealthinformatics.odoorx.core.base.rpc.listeners.IOdooConnectionList
 import com.ehealthinformatics.odoorx.core.base.rpc.listeners.IOdooLoginCallback;
 import com.ehealthinformatics.odoorx.core.base.rpc.listeners.OdooError;
 import com.ehealthinformatics.odoorx.core.base.support.OUser;
-import com.ehealthinformatics.odoorx.core.data.dto.SyncConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -111,7 +110,7 @@ public class OUserAccount implements IOdooLoginCallback, IOdooConnectionListener
         loginProgressStatus.onConnectionError(error);
     }
 
-    private class AccountCreator extends AsyncTask<OUser, String, SyncConfig> {
+    private class AccountCreator extends AsyncTask<OUser, String, ISyncConfig> {
 
         private OUser loggedInUser;
 
@@ -126,7 +125,7 @@ public class OUserAccount implements IOdooLoginCallback, IOdooConnectionListener
         }
 
         @Override
-        protected SyncConfig doInBackground(OUser... params) {
+        protected ISyncConfig doInBackground(OUser... params) {
             OUser authenticatedUser = params[0];
             try {
                  loggedInUser = OdooAccountManager.getDetails(context, authenticatedUser.getAndroidName());
@@ -148,16 +147,14 @@ public class OUserAccount implements IOdooLoginCallback, IOdooConnectionListener
         }
 
         @Override
-        protected void onPostExecute(SyncConfig syncConfig) {
+        protected void onPostExecute(ISyncConfig syncConfig) {
             super.onPostExecute(syncConfig);
             try {
-                if (syncConfig == null || syncConfig.getUser() == null || syncConfig.getPosSession() == null) {
+                if (syncConfig.isValid()) {
                     throw new Exception("Unable to complete syncing configuration with server, SyncConfig is " + (syncConfig != null ? syncConfig.toString() : "null"));
                 }
-                OConstants.CURRENCY_SYMBOL = syncConfig.getPosSession().getConfig().getPriceList().getCurrency().getSymbol();
-                loggedInUser.setPosSessionId(syncConfig.getPosSession().getServerId());
-                loggedInUser.setCurrencySymbol(OConstants.CURRENCY_SYMBOL);
-                user = OdooAccountManager.updateUserData(context, loggedInUser);
+                user = OdooAccountManager.updateUserData(context, user);
+                syncConfig.updateUserConfig(user);
                 configLoadListener.onConfigLoadSuccess(syncConfig);
             } catch (Exception e) {
                 OdooLog.e(e);

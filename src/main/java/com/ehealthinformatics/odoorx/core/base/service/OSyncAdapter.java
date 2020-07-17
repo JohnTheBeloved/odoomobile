@@ -188,7 +188,6 @@ public class OSyncAdapter extends AbstractThreadedSyncAdapter {
                     .searchRead(oModel.getModelName(), getFields(oModel)
                             , oDomain, 0, 20, "create_date DESC ");
             msg = "Sync api call response received for " + modelName + " at " + ODateUtils.getDate();
-            Thread.sleep(10000);
             syncProcess.update(SyncStatus.SERVER_RESPONSE_RECEIVED, msg);
             //Step 1a: Null response.
             //TODO: Retry logic may be useful here cos of funny failures
